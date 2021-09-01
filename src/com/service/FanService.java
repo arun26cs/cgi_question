@@ -12,13 +12,13 @@ public class FanService {
 
 	public void speedService() {
 		System.out.println("Controlling speed...");
-		if(this.fan.getSpeed()<3 && this.fan.getSpeed()>=0) {
+		if(this.fan.getSpeed()<=3 && this.fan.getSpeed()>=0) {
 			int speed=this.fan.getSpeed()+1;
 			System.out.println(speed);
 			this.fan.setSpeed(speed);
 		}
 		//after it is 3 you reset to 0 and have to display stopped
-		if(this.fan.getSpeed()==3) {
+		if(this.fan.getSpeed()==4) {
 			this.fan.setSpeed(0);
 		}
 		
@@ -58,7 +58,7 @@ public class FanService {
 	}
 	
 	public void fanDirectionDisplayService() {
-		switch (this.fan.getDirection())	{
+		switch (this.fan.getDirection().toUpperCase())	{
 		case "F": {
 			System.out.println("You are at Fixed direction");
 			break;
@@ -69,15 +69,15 @@ public class FanService {
 		}
 		
 		default:
-			throw new IllegalArgumentException("Unexpected value: " + this.fan.getSpeed());
+			throw new IllegalArgumentException("Unexpected value: " + this.fan.getDirection());
 		}
 	}
 	
 	public void fanGeneralDisplayService() {
 		System.out.println("========================");
-		System.out.println("press s for Speed chord|");
-		System.out.println("press d for Speed chord|");
-		System.out.println("press x for Speed chord|");
+		System.out.println("press s for Speed chord and to change it|");
+		System.out.println("press d for direction chord and to change it|");
+		System.out.println("press x for exit chord|");
 		System.out.println("========================");
 	}
 }

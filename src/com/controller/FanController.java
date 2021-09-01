@@ -10,10 +10,12 @@ public class FanController {
 	public void pullSpeedchord() {
 		this.fanService.speedService();
 		this.fanService.fanSpeedDisplayService();
+		this.fanService.fanDirectionDisplayService();
 	}
 	
 	public void pullDirectionChord() {
 		this.fanService.directionService();
+		this.fanService.fanSpeedDisplayService();
 		this.fanService.fanDirectionDisplayService();
 	}
 	
